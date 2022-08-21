@@ -6,23 +6,123 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create Your Pentad!</title>
+    <!-- daisy UI linked -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@2.24.0/dist/full.css" rel="stylesheet" type="text/css" />
     <!-- tailwind linked -->
     <script src="https://cdn.tailwindcss.com"></script>
 
 </head>
 
 <body>
-    <section>
-        <div class="relative">
-            <img class="h-screen w-full p-10" src="images/bg4.jpg" alt="">
-            <h1 class="absolute text-7xl top-1/3 left-1/3 text-stone-300 font-medium">Create Your <span
-                    class="text-teal-300">Pentad</span>!!!</h1>
-            <h4 class="text-stone-300 absolute mt-20 ml-32 top-1/3 left-1/3">Create Your Dream Team With Your Favourite
-                Players!</h4>
+    <main>
+        <!-- header section -->
+        <section>
+            <div class="relative">
+                <img class="h-screen w-full" src="images/bg4.jpg" alt="">
+                <h1 class="absolute text-7xl top-1/3 left-1/3 text-stone-300 font-medium">Create Your <span
+                        class="text-teal-300">Pentad</span>!!!</h1>
+                <h4 class="text-stone-200 absolute mt-20 ml-36 top-1/3 left-1/3">Create Your Dream Team With Your
+                    Favourite
+                    Players!</h4>
 
-        </div>
+            </div>
 
-    </section>
+        </section>
+
+        <!-- card section -->
+        <section class="bg-zinc-900">
+            <div class="grid grid-cols-4 mx-12 gap-4 py-12">
+                <!-- card messi -->
+                <div class="card card-compact w-auto bg-black shadow-xl">
+                    <figure><img class="w-80 h-64" src="images/players/messi.jpg" alt="" /></figure>
+                    <div class="card-body text-center">
+                        <h2 class="card-title ml-20 text-stone-200">Lionel Messi</h2>
+                        <p class="text-stone-400">36 Goals || 120 Assist</p>
+                        <div class="card-actions justify-center">
+                            <button class="btn w-3/4">Select</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- card CR7 -->
+                <div class="card card-compact w-auto bg-black shadow-xl">
+                    <figure><img class="w-80 h-64" src="images/players/cr7.jpg" alt="" /></figure>
+                    <div class="card-body text-center">
+                        <h2 class="card-title ml-14 text-stone-200 ">Cristiano Ronaldo</h2>
+                        <p class="text-stone-400">38 Goals || 100 Assist</p>
+                        <div class="card-actions justify-center">
+                            <button class="btn  w-3/4">Select</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- card kaka -->
+                <div class="card card-compact w-auto bg-black shadow-xl">
+                    <figure><img class="w-80 h-64" src="images/players/kaka.jpg" alt="" /></figure>
+                    <div class="card-body text-center">
+                        <h2 class="card-title ml-28 text-stone-200">Kaká</h2>
+                        <p class="text-stone-400">30 Goals || 140 Assist</p>
+                        <div class="card-actions justify-center">
+                            <button class="btn w-3/4">Select</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- card kaka -->
+                <div class="card card-compact w-auto bg-black shadow-xl">
+                    <div class="card-body text-center">
+                        <h2 class="text-stone-200 text-2xl">Selected Five</h2>
+
+                    </div>
+
+                </div>
+                <!-- card mbappe -->
+                <div class="card card-compact w-auto bg-black shadow-xl">
+                    <figure><img class="w-80 h-64" src="images/players/mbappe.jpg" alt="" /></figure>
+                    <div class="card-body text-center">
+                        <h2 class="card-title ml-16 text-stone-200">Kylian Mbappé</h2>
+                        <p class="text-stone-400">40 Goals || 110 Assist</p>
+                        <div class="card-actions justify-center">
+                            <button class="btn w-3/4">Select</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- card neymar -->
+                <div class="card card-compact w-auto bg-black shadow-xl">
+                    <figure><img class="w-80 h-64" src="images/players/neymar.jpg" alt="" /></figure>
+                    <div class="card-body text-center">
+                        <h2 class="card-title ml-20 text-stone-200">Neymar jr.</h2>
+                        <p class="text-stone-400">28 Goals || 122 Assist</p>
+                        <div class="card-actions justify-center">
+                            <button class="btn w-3/4">Select</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- card ronaldinho -->
+                <div class="card card-compact w-auto bg-black shadow-xl">
+                    <figure><img class="w-80 h-64" src="images/players/ronaldinho.jpg" alt="" /></figure>
+                    <div class="card-body text-center">
+                        <h2 class="card-title ml-20 text-stone-200">Ronaldinho</h2>
+                        <p class="text-stone-400">34 Goals || 140 Assist</p>
+                        <div class="card-actions justify-center">
+                            <button class="btn w-3/4">Select</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- card kaka -->
+                <div class="card card-compact w-auto bg-slate-600 shadow-xl">
+
+                    <div class="card-body text-center">
+                        <h2 class="text-2xl text-stone-200">Budget</h2>
+                        <p class="text-stone-400">Per Player: <input type="text" name="" id=""></p>
+                        <button>Calculate</button>
+                        <h3>Player Expenses $00</h3>
+                        <p>Manger <input type="text" name="" id=""></p>
+                        <p>Coach<input type="text" name="" id=""></p>
+                        <button>Calculate Total</button>
+                        <h3>Total $00</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
 </body>
 
 </html>
