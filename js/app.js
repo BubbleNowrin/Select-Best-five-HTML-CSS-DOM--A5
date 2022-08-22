@@ -1,6 +1,5 @@
 
 //select the button and add player name in the list
-
 function setNameOnTheList(id) {
     const playerNameElement = getPlayerName(id);
     const selectedPlayerField = document.getElementById('selected-players');
@@ -10,7 +9,7 @@ function setNameOnTheList(id) {
 
     //show alert when more than five players selected
     if (selectedPlayerField.childNodes.length >= 5) {
-        return alert('You can add more than Five!');
+        return alert('You can not add more than Five!');
     }
     selectedPlayerField.appendChild(li);
 
@@ -43,7 +42,6 @@ function setNameOnTheList(id) {
 }
 
 //get the player name text by id
-
 function getPlayerName(elementId) {
     const playerNameElement = document.getElementById(elementId);
     const playerName = playerNameElement.innerText;
@@ -51,7 +49,6 @@ function getPlayerName(elementId) {
 }
 
 //get budget amount from the input field value
-
 function getBudgetById(budgetId) {
     const budgetElement = document.getElementById(budgetId);
     const budgetString = budgetElement.value;
@@ -60,10 +57,9 @@ function getBudgetById(budgetId) {
 }
 
 //set the text element value by id
-
 function setTextValueById(expenseId, newValue) {
-    const ExpenseElement = document.getElementById(expenseId);
-    ExpenseElement.innerText = newValue;
+    const expenseElement = document.getElementById(expenseId);
+    expenseElement.innerText = newValue;
 }
 
 //calculate the player expense
@@ -84,6 +80,17 @@ document.getElementById('btn-calculate').addEventListener('click', function () {
 
     //get the player Expense
     const playerExpenseTotal = calculatePlayerExpense('player-field');
+
+    //input Validation
+    if (isNaN(playerExpenseTotal) == true) {
+
+        return alert('please enter valid input');
+
+    } else if (playerExpenseTotal < 0) {
+
+        return alert('Input a Positive number');
+    }
+
     //set the calculated expense
     setTextValueById('player-expense', playerExpenseTotal);
 
@@ -91,13 +98,31 @@ document.getElementById('btn-calculate').addEventListener('click', function () {
 
 document.getElementById('btn-calculate-total').addEventListener('click', function () {
 
+    const playerExpenseTotalElement = document.getElementById('player-expense');
+    const playerExpenseTotalString = playerExpenseTotalElement.innerText;
+    const playerExpenseTotal = parseInt(playerExpenseTotalString);
+
+    if (playerExpenseTotal === 0) {
+        return alert('calculate player expenses first');
+    }
+
     //get The Expenses by function
-    const playerExpenseTotal = calculatePlayerExpense('player-field');
     const managerExpense = getBudgetById('manager-field');
     const coachExpense = getBudgetById('coach-field');
 
+    //input validation
+    if (isNaN(playerExpenseTotal) == true || isNaN(managerExpense) == true || isNaN(coachExpense) == true) {
+
+        return alert('please enter valid input');
+
+    } else if (playerExpenseTotal < 0 || managerExpense < 0 || coachExpense < 0) {
+
+        return alert('Input a Positive number');
+    }
+
     //calculate the total expense
     const totalExpenses = playerExpenseTotal + managerExpense + coachExpense;
+
 
     //set the total expenses value
     setTextValueById('total-expense', totalExpenses);
