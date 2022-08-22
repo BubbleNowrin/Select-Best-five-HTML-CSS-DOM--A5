@@ -9,7 +9,12 @@ function setNameOnTheList(id) {
 
     //show alert when more than five players selected
     if (selectedPlayerField.childNodes.length >= 5) {
-        return alert('You can not add more than Five!');
+        // return alert('You can not add more than Five!');
+        return Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'You Can Not Add More Than Five!'
+        })
     }
     selectedPlayerField.appendChild(li);
 
@@ -84,11 +89,19 @@ document.getElementById('btn-calculate').addEventListener('click', function () {
     //input Validation
     if (isNaN(playerExpenseTotal) == true) {
 
-        return alert('please enter valid input');
+        return Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Please Enter Number Input!'
+        })
 
     } else if (playerExpenseTotal < 0) {
 
-        return alert('Input a Positive number');
+        return Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Please Enter A Positive Value!'
+        })
     }
 
     //set the calculated expense
@@ -103,7 +116,12 @@ document.getElementById('btn-calculate-total').addEventListener('click', functio
     const playerExpenseTotal = parseInt(playerExpenseTotalString);
 
     if (playerExpenseTotal === 0) {
-        return alert('calculate player expenses first');
+
+        return Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Calculate Player Expenses First'
+        })
     }
 
     //get The Expenses by function
@@ -113,11 +131,19 @@ document.getElementById('btn-calculate-total').addEventListener('click', functio
     //input validation
     if (isNaN(playerExpenseTotal) == true || isNaN(managerExpense) == true || isNaN(coachExpense) == true) {
 
-        return alert('please enter valid input');
+        return Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Please Enter Number Input!'
+        })
 
     } else if (playerExpenseTotal < 0 || managerExpense < 0 || coachExpense < 0) {
 
-        return alert('Input a Positive number');
+        return Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Please Enter A Positive Value!'
+        })
     }
 
     //calculate the total expense
