@@ -1,7 +1,8 @@
+
+//select the button and add player name in the list
+
 function setNameOnTheList(id) {
     const playerNameElement = getPlayerName(id);
-
-
     const selectedPlayerField = document.getElementById('selected-players');
     const li = document.createElement('li');
     li.innerText = playerNameElement;
@@ -9,49 +10,57 @@ function setNameOnTheList(id) {
     selectedPlayerField.appendChild(li);
 }
 
+//get the player name text by id
+
 function getPlayerName(elementId) {
     const playerNameElement = document.getElementById(elementId);
     const playerName = playerNameElement.innerText;
     return playerName;
 }
 
+//get budget amount from the input field value
+
+function getBudgetById(budgetId) {
+    const budgetElement = document.getElementById(budgetId);
+    const budgetString = budgetElement.value;
+    const budget = parseInt(budgetString);
+    return budget;
+}
+
+//set the text element value by id
+
+function setTextValueById(expenseId, newValue) {
+    const ExpenseElement = document.getElementById(expenseId);
+    ExpenseElement.innerText = newValue;
+}
+
 document.getElementById('btn-calculate').addEventListener('click', function () {
 
-    const perPlayerBudgetElement = document.getElementById('player-field');
-    const perPlayerBudgetString = perPlayerBudgetElement.value;
-    const perPlayerBudget = parseInt(perPlayerBudgetString);
-
+    //get player number from the list
     const selectedPlayersElement = document.getElementById('selected-players');
     const selectedPlayers = selectedPlayersElement.childNodes.length;
 
+    //calculate the player expense
+    const perPlayerBudget = getBudgetById('player-field');
     const playerExpenseTotal = perPlayerBudget * selectedPlayers;
 
-    const playerExpenseElement = document.getElementById('player-expense');
-    playerExpenseElement.innerText = playerExpenseTotal;
-
+    setTextValueById('player-expense', playerExpenseTotal);
 
 })
 
 document.getElementById('btn-calculate-total').addEventListener('click', function () {
-    const perPlayerBudgetElement = document.getElementById('player-field');
-    const perPlayerBudgetString = perPlayerBudgetElement.value;
-    const perPlayerBudget = parseInt(perPlayerBudgetString);
 
     const selectedPlayersElement = document.getElementById('selected-players');
     const selectedPlayers = selectedPlayersElement.childNodes.length;
 
+    const perPlayerBudget = getBudgetById('player-field');
     const playerExpenseTotal = perPlayerBudget * selectedPlayers;
 
-    const managerExpenseElement = document.getElementById('manager-field');
-    const managerExpenseString = managerExpenseElement.value;
-    const managerExpense = parseInt(managerExpenseString);
+    const managerExpense = getBudgetById('manager-field');
+    const coachExpense = getBudgetById('coach-field');
 
-    const coachExpenseElement = document.getElementById('coach-field');
-    const coachExpenseString = coachExpenseElement.value;
-    const coachExpense = parseInt(coachExpenseString);
 
     const totalExpenses = playerExpenseTotal + managerExpense + coachExpense;
 
-    const totalExpenseElement = document.getElementById('total-expense');
-    totalExpenseElement.innerText = totalExpenses;
+    setTextValueById('total-expense', totalExpenses);
 })
